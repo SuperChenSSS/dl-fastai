@@ -11,7 +11,6 @@ wget "http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/
 sudo dpkg -i cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
 sudo apt-get update
 sudo apt-get -y install cuda
-sudo apt install nvidia-cuda-toolkit
 sudo modprobe nvidia
 nvidia-smi
 
@@ -62,8 +61,8 @@ c.NotebookApp.open_browser = False" >> $HOME/.jupyter/jupyter_notebook_config.py
 # clone the fast.ai course repo and prompt to start notebook
 cd ~
 pip install fastai
-pip3 install http://download.pytorch.org/whl/cu91/torch-0.3.1-cp36-cp36m-linux_x86_64.whl 
-pip3 install torchvision
+pipinstall http://download.pytorch.org/whl/cu91/torch-0.3.1-cp36-cp36m-linux_x86_64.whl 
+pip install torchvision
 git clone https://github.com/fastai/fastai.git
 echo "\"jupyter notebook\" will start Jupyter on port 8888"
 echo "If you get an error instead, try restarting your session so your $PATH is updated"
