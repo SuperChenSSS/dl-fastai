@@ -17,7 +17,7 @@
 ## How to use:
 Excecute via *bash install.sh*, then just follow the instructions.
 
-##Notice:
+## Notice:
 The script *IS NOT* an automated script, so you should follow the instructions carefully.
 
-###Structured by SuperChen
+### Structured by SuperChen
