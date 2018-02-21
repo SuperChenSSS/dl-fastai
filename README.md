@@ -1,6 +1,5 @@
 @Editor:SuperChen
-# Install the most popular 
-# deeplearning models via GPU mode
+# Install the most popular deeplearning models via GPU mode
 
 ## Preconditions:
         - Ubuntu 16.04LTS
