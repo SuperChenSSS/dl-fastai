@@ -1,4 +1,3 @@
-@Editor:SuperChen
 # Install the most popular deeplearning models via GPU mode
 
 ## Preconditions:
