@@ -1,7 +1,6 @@
 # This script is designed to work with ubuntu 16.04 LTS
 
 # ensure system is updated and has basic build tools
-sudo apt-get update
 sudo apt-get --assume-yes install tmux build-essential gcc g++ make binutils
 sudo apt-get --assume-yes install software-properties-common
 
@@ -22,7 +21,6 @@ bash "Anaconda3-5.1.0-Linux-x86_64.sh"
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 conda config --set show_channel_urls yes
 conda install -y bcolz
-conda upgrade -y --all
 
 # install and configure theano
 conda install theano
@@ -44,13 +42,6 @@ echo '{
     "backend": "tensorflow"
 }' > ~/.keras/keras.json
 
-# install cudnn libraries
-wget "http://files.fast.ai/files/cudnn.tgz" -O "cudnn.tgz"
-tar -zxf cudnn.tgz
-cd cuda
-sudo cp lib64/* /usr/local/cuda/lib64/
-sudo cp include/* /usr/local/cuda/include/
-
 # configure jupyter and prompt for password
 jupyter notebook --generate-config
 jupass=`python -c "from notebook.auth import passwd; print(passwd())"`
@@ -58,11 +49,11 @@ echo "c.NotebookApp.password = u'"$jupass"'" >> $HOME/.jupyter/jupyter_notebook_
 echo "c.NotebookApp.ip = '*'
 c.NotebookApp.open_browser = False" >> $HOME/.jupyter/jupyter_notebook_config.py
 
+#Install pytorch with China source.
+conda install pytorch torchvision cuda91 -c pytorch --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+
 # clone the fast.ai course repo and prompt to start notebook
 cd ~
 pip install fastai
-pipinstall http://download.pytorch.org/whl/cu91/torch-0.3.1-cp36-cp36m-linux_x86_64.whl 
-pip install torchvision
 git clone https://github.com/fastai/fastai.git
-echo "\"jupyter notebook\" will start Jupyter on port 8888"
-echo "If you get an error instead, try restarting your session so your $PATH is updated"
+echo "Done!Go and enjoy~"
